@@ -33,5 +33,10 @@
     "FirstName": "Tammy",
     "LastName": "Tan",
     "CourseName": "Python 100"
+  },
+  {
+    "FirstName": "Sam",
+    "LastName": "Smith",
+    "CourseName": "Python 100"
   }
 ]
