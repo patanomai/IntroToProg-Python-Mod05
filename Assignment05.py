@@ -64,7 +64,7 @@ while (True):
     # On menu choice 1, the program prompts the user to enter the student's
     # first name and last name, followed by the course name, using the input()
     # function and stores the inputs in the respective variables.
-    # using try-except to check when users input first names
+    # using try-except to check when users input first names and last name
     if menu_choice == "1":  # This will not work if it is an integer!
         try: # use error handling
             print("-"*50)
@@ -78,8 +78,9 @@ while (True):
             # Data collected for menu choice 1 is added to a dictionary
             # named student_data. Next, student_data is added to the students
             # two-dimensional list of dictionaries rows.
-            student_data = {"FirstName": student_first_name, "LastName":
-                student_last_name, "CourseName": course_name}
+            student_data = {"FirstName": student_first_name,
+                            "LastName": student_last_name,
+                            "CourseName": course_name}
             students.append(student_data) # add row to list of dictionaries 2D
             # print statement inside the try block to only confirm the
             # registration if all inputs are valid and the data was
@@ -106,19 +107,10 @@ while (True):
     elif menu_choice == "2":
         print("-"*50)
         for student in students:
-            print(f"{student["FirstName"]},{student["LastName"]},"
-                  f"{student["CourseName"]}")
+            print(f'{student["FirstName"]},{student["LastName"]},'
+                  f'{student["CourseName"]}')
         print("-"*50)
-
-        # On menu choice 2, the program uses the print() function to show a
-        # string of comma-separated values for each row collected in the
-        # students variable
-
-        #for student in students:
-            #print(student["FirstName"], student["LastName"],
-                  #student["CourseName"], sep = ",")
-        #print("-"*50)
-        #continue
+        continue
 
     # Save the data to a file:
     # On menu choice 3, the program opens a file named "Enrollments.json"
@@ -134,8 +126,8 @@ while (True):
             # statement if writing succeeds
             print("The following data was saved to file!")
             for student in students:
-                print(f"Student {student["FirstName"]} {student["LastName"]}",
-                      f"is enrolled in {student["CourseName"]}")
+                print(f'Student {student["FirstName"]} {student["LastName"]}',
+                      f'is enrolled in {student["CourseName"]}')
         except FileNotFoundError as e:
             print("Text file must exist before running this script!\n")
             print("-- Technical Error Message -- ")
